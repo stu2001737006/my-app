@@ -1,25 +1,50 @@
-import logo from './logo.svg';
-import './App.css';
+import DefaultLayout from './layouts/Default';
+import Movies from './pages/Movies';
+import MovieDetails from './pages/MovieDetails';
+
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+} from "react-router-dom";
+
+const routes = [
+  {
+    path: '/',
+    exact: true,
+    main: () => <DefaultLayout>
+      <Movies></Movies>
+    </DefaultLayout>
+  },
+  {
+    path: '/movie/:id',
+    main: () => <DefaultLayout>
+      <MovieDetails></MovieDetails>
+    </DefaultLayout>
+  },
+]
+
+const getRoutes = () => {
+  const routeComponents = routes.map((route, index) => {
+    return <Route
+      key={index}
+      exact={route.exact}
+      path={route.path}
+    >
+      {route.main}
+    </Route>
+  })
+  return routeComponents
+}
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router>
+        <Switch>
+          {getRoutes()}
+        </Switch>
+    </Router>
   );
 }
-
 export default App;
