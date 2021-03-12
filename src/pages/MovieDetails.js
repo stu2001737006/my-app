@@ -14,6 +14,7 @@ import {
     CardSubtitle,
   } from 'reactstrap';
 import constants from '../constants';
+import Footer from '../components/Footer';
 
 function MovieDetails(props) {
 
@@ -61,7 +62,10 @@ function MovieDetails(props) {
                 </div>
             </div>
         </div>
-   
+        <div className="footer">
+            <Footer/>    
+        </div>    
     </>
+
 }
 export default MovieDetails;

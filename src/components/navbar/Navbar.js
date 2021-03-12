@@ -4,8 +4,9 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFilter, faPhone, faEnvelope, faSearch } from '@fortawesome/free-solid-svg-icons';
 import image1 from '../../img/logo.png';
 import Filters from '../filters/Filters';
+import '../../App.css';
 
-class Example extends Component {
+class Navbar extends Component {
   constructor(){
     super()
     this.state={
@@ -24,8 +25,10 @@ class Example extends Component {
       
       <div>
         <div className="row d-flex bg-dark">
-            <div className="col-md-4">     
+            <div className="col-md-4">
+              <a href="/">     
                 <img src={image1} alt="welcome"/>
+              </a>
             </div>
             <div className="col-md-6 mt-4 ml-4 mb-4 text-white">
                 <h2>Място за вашата реклама!</h2>
@@ -41,7 +44,12 @@ class Example extends Component {
             <div className="col-4 mt-2">
               <form>
                 <label>
-                  <input type="text" className="form-control" placeholder="Търси.." name="search" id="inputValue"/>
+                  <input 
+                  style={{
+                    display: 'block',
+                    width: "100%"
+                  }}
+                  className="form-control" placeholder="Търси.."/>
                 </label>
                   <Button color="" className="ml-2 text-white"><FontAwesomeIcon icon={faSearch} /></Button>
               </form>
@@ -49,11 +57,11 @@ class Example extends Component {
         </div>
       {
         this.state.showMe?
-      <div><Filters/></div>
+      <div className="filters shadow p-2"><Filters/></div>
       :null
       }
       </div>
       )
   }
 }
-export default Example;
+export default Navbar;

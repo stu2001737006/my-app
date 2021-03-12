@@ -23,7 +23,7 @@ const MovieGridItem = props => {
     }
 
     return (
-      <div className="col-md-3">
+      <div className="col-md-3 zoom">
         <Card className="mb-3">
           {getMovieImage()}
           <CardBody>

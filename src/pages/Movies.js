@@ -5,7 +5,8 @@ import { Button, Alert } from 'reactstrap';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTh, faList } from '@fortawesome/free-solid-svg-icons';
 import { setListView } from '../redux/actions';
-
+import Footer from '../components/Footer';
+import '../App.css';
 
 function Movies(props) {
 
@@ -54,9 +55,9 @@ function Movies(props) {
     }
     const getListIcon = () => {
         if(isListView){
-            return faList
+            return faTh
         }
-        return faTh
+        return faList
     }
     return <>
         <div className="container">
@@ -73,6 +74,11 @@ function Movies(props) {
                 {getMovies()}
             </div>
         </div>
+        <div className="footer">
+            <Footer/>    
+        </div>
     </>
+    
+        
 }
 export default Movies;
